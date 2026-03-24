@@ -1,17 +1,17 @@
 # TODO-STEP 1: Choose a base image
-FROM <BASE_IMAGE>
+FROM python:3.9-slim
 
 # TODO-STEP 2: Set the working directory
-WORKDIR <WORKING_DIRECTORY>
+WORKDIR /app
 
 # TODO-STEP 3: Copy the requirements file
-COPY <SOURCE> <DESTINATION>
+COPY requirements.txt .
 
 # TODO-STEP 4: Install the Python dependencies
-RUN <COMMAND_TO_INSTALL_DEPENDENCIES>
+RUN pip install -r requirements.txt
 
 # TODO-STEP 5: Copy the application code
-COPY <SOURCE> <DESTINATION>
+COPY . .
 
 # TODO-STEP 6: Specify the command to run the application
-CMD <COMMAND_TO_RUN_APP>
+CMD ["python", "app.py"]
