@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  calculator-app:
+    buiid:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+
+    environment:
+      - PORT=5000
+      - APP_ENV=development
+
+    networks:
+      - calc-network
+
+    restart: always
+
+networks:
+  calc-network:
+    driver: bridge
+
+volumes:
+  app-logs:
